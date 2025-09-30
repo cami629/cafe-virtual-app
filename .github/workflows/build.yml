@@ -1,0 +1,27 @@
+name: Build APK
+on: 
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build with Buildozer
+      uses: artem-rogov/buildozer-action@v1
+      with:
+        work-dir: .
+        buildozer-version: stable
+        python-version: "3.10"
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: cafe-virtual-apk
+        path: bin/*.apk
+        retention-days: 30
