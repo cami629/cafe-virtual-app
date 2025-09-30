@@ -12,7 +12,7 @@ from kivy.core.window import Window
 import time
 
 # Configurar el tamaño de la ventana para que sea más compacta
-Window.size = (400, 535)  # Ventana más compacta
+Window.size = (400, 535)   # Ventana más compacta
 
 class CoffeeSimulator(BoxLayout):
     message_text = StringProperty("- Selecciona tu tipo de café -")
@@ -240,4 +240,5 @@ class CoffeeApp(App):
         return CoffeeSimulator()
 
 if __name__ == '__main__':
+
     CoffeeApp().run()
